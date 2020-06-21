@@ -1,3 +1,3 @@
-# TextToSpeech
+# Text To Speech
 
-A simple text to speech app created to help me learn swift
+A simple iOS app created as a learning exercise.
