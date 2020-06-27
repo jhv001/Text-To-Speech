@@ -13,6 +13,7 @@
 		C520DE842445C51100A5BDF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C520DE822445C51100A5BDF5 /* Main.storyboard */; };
 		C520DE862445C51800A5BDF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C520DE852445C51800A5BDF5 /* Assets.xcassets */; };
 		C520DE892445C51800A5BDF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C520DE872445C51800A5BDF5 /* LaunchScreen.storyboard */; };
+		C5575EBD24A4321000DB9AAB /* MyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5575EBC24A4321000DB9AAB /* MyTextView.swift */; };
 		C564FA582493962700B3560C /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C564FA572493962700B3560C /* LanguageTableViewController.swift */; };
 		C5838770248E380000EB3F97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583876F248E380000EB3F97 /* SceneDelegate.swift */; };
 		C5D6C245247A338F00A6A7A6 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D6C244247A338F00A6A7A6 /* Speech.swift */; };
@@ -29,6 +30,7 @@
 		C520DE852445C51800A5BDF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C520DE882445C51800A5BDF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C520DE8A2445C51800A5BDF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5575EBC24A4321000DB9AAB /* MyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextView.swift; sourceTree = "<group>"; };
 		C564FA572493962700B3560C /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
 		C583876F248E380000EB3F97 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C5D6C244247A338F00A6A7A6 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				C520DE802445C51100A5BDF5 /* MainViewController.swift */,
 				C520DE822445C51100A5BDF5 /* Main.storyboard */,
 				C5D6C248247E730300A6A7A6 /* MyButtons.swift */,
+				C5575EBC24A4321000DB9AAB /* MyTextView.swift */,
 				C5D6C246247B545500A6A7A6 /* SettingsViewController.swift */,
 				C564FA572493962700B3560C /* LanguageTableViewController.swift */,
 				C520DE852445C51800A5BDF5 /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5D6C245247A338F00A6A7A6 /* Speech.swift in Sources */,
+				C5575EBD24A4321000DB9AAB /* MyTextView.swift in Sources */,
 				C520DE812445C51100A5BDF5 /* MainViewController.swift in Sources */,
 				C520DE7D2445C51100A5BDF5 /* AppDelegate.swift in Sources */,
 				C5040A6D2484831800FF78A3 /* SettingsHandler.swift in Sources */,

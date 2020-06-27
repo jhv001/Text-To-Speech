@@ -11,29 +11,74 @@
         <!--Main_ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Main_ViewController" customClass="MainViewController" customModule="TextToSpeech" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Main_ViewController" customClass="MainViewController" customModule="Text_To_Speech" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-M9-lq1" userLabel="Master Stack View">
-                                <rect key="frame" x="16" y="60" width="314" height="591"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-M9-lq1" userLabel="Master Stack View">
+                                <rect key="frame" x="16" y="60" width="343" height="591"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mQT-Id-1SK">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="215"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
-                                    </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-NV-RRE">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mQT-Id-1SK" customClass="MyTextView" customModule="Text_To_Speech" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="180"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="rRe-KD-lEj"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDh-bE-Jxw" userLabel="Clear Button" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                <rect key="frame" x="307" y="144" width="36" height="36"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="36" id="Mdp-7h-ncG"/>
+                                                    <constraint firstAttribute="height" constant="36" id="mE2-1R-bb6"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rounded" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clearText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JEi-K3-tkS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="mQT-Id-1SK" firstAttribute="top" secondItem="IJt-NV-RRE" secondAttribute="top" id="8Lm-AP-9ek"/>
+                                            <constraint firstAttribute="trailing" secondItem="mQT-Id-1SK" secondAttribute="trailing" id="MIG-Uj-cLA"/>
+                                            <constraint firstItem="mQT-Id-1SK" firstAttribute="bottom" secondItem="QDh-bE-Jxw" secondAttribute="bottom" id="WTg-Vk-Icy"/>
+                                            <constraint firstItem="mQT-Id-1SK" firstAttribute="leading" secondItem="IJt-NV-RRE" secondAttribute="leading" id="ciZ-Je-zwm"/>
+                                            <constraint firstItem="mQT-Id-1SK" firstAttribute="trailing" secondItem="QDh-bE-Jxw" secondAttribute="trailing" id="hR2-hk-YHo"/>
+                                            <constraint firstAttribute="bottom" secondItem="mQT-Id-1SK" secondAttribute="bottom" constant="20" id="pbS-os-niS"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tcm-q6-jCk" userLabel="H-Stack View">
-                                        <rect key="frame" x="0.0" y="235" width="314" height="356"/>
+                                        <rect key="frame" x="0.0" y="220" width="343" height="371"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Yhl-tn-CjC" userLabel="Left Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="147" height="356"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="371"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-2i-tvT" userLabel="Cancel Button" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="46"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeK-2i-tvT" userLabel="Cancel Button" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,8 +92,8 @@
                                                             <action selector="cancelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XcB-Zs-JCb"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-r3-xzX" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="62" width="147" height="46"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUk-r3-xzX" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="64.5" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button1">
@@ -61,8 +106,8 @@
                                                             <action selector="button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7PP-1Z-ZEm"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-Rq-qt3" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="124" width="147" height="46"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-Rq-qt3" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="129" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button3">
@@ -75,8 +120,8 @@
                                                             <action selector="button3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cYD-1K-oGD"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgQ-nF-09I" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="186" width="147" height="46"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgQ-nF-09I" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="193.5" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button5">
@@ -89,8 +134,8 @@
                                                             <action selector="button5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhi-8n-wQF"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbS-Qu-Wn0" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="248" width="147" height="46"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbS-Qu-Wn0" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="258" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button7">
@@ -103,8 +148,8 @@
                                                             <action selector="button7:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4gh-Ah-jvY"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUn-sv-fsK" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="310" width="147" height="46"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUn-sv-fsK" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="322.5" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button9">
@@ -120,11 +165,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LGN-eu-2Mt" userLabel="Right Stack View">
-                                                <rect key="frame" x="167" y="0.0" width="147" height="356"/>
+                                                <rect key="frame" x="181.5" y="0.0" width="161.5" height="371"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NR1-d1-aLW" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="46"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NR1-d1-aLW" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,9 +182,8 @@
                                                             <action selector="speakButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHr-qM-Ivg"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zwO-vQ-iqb" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="62" width="147" height="46"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwO-vQ-iqb" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="64.5" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button2">
@@ -153,9 +196,8 @@
                                                             <action selector="button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2v-U4-yhd"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="g8n-tY-1Xw" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="124" width="147" height="46"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8n-tY-1Xw" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="129" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button4">
@@ -168,9 +210,8 @@
                                                             <action selector="button4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFe-rt-9xp"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Im8-Et-Mw9" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="186" width="147" height="46"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Im8-Et-Mw9" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="193.5" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button6">
@@ -183,9 +224,8 @@
                                                             <action selector="button6:" destination="BYZ-38-t0r" eventType="touchUpInside" id="waY-I2-FTU"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3za-Nh-z3f" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="248" width="147" height="46"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3za-Nh-z3f" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="258" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button8">
@@ -198,9 +238,8 @@
                                                             <action selector="button8:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VrE-26-Clj"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wqG-MZ-Lmg" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="310" width="147" height="46"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqG-MZ-Lmg" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="322.5" width="161.5" height="48.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button10">
@@ -238,6 +277,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="clearButton" destination="QDh-bE-Jxw" id="usf-Yj-Gea"/>
                         <outlet property="textView1" destination="mQT-Id-1SK" id="aK0-Bj-WyR"/>
                         <outletCollection property="presetButtonGroup" destination="qUk-r3-xzX" collectionClass="NSMutableArray" id="GLO-Cr-rED"/>
                         <outletCollection property="presetButtonGroup" destination="zwO-vQ-iqb" collectionClass="NSMutableArray" id="P7v-1B-lJq"/>
@@ -258,16 +298,16 @@
         <!--Settings_View Controller-->
         <scene sceneID="XmQ-iv-K0m">
             <objects>
-                <viewController id="mbr-dt-Lqu" userLabel="Settings_View Controller" customClass="SettingsViewController" customModule="TextToSpeech" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6BK-ew-19x">
+                <viewController id="mbr-dt-Lqu" userLabel="Settings_View Controller" customClass="SettingsViewController" customModule="Text_To_Speech" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="6BK-ew-19x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="tPH-cD-WAr" userLabel="Master Stack View">
-                                <rect key="frame" x="16" y="60" width="352" height="591"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="tPH-cD-WAr" userLabel="Master Stack View">
+                                <rect key="frame" x="16" y="60" width="343" height="591"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WOU-Bv-gP8" userLabel="Slider Group Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="352" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7KU-TH-Y7V" userLabel="Slider Labels Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="76"/>
@@ -287,16 +327,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-8h-TGO" userLabel="Sliders Stack View">
-                                                <rect key="frame" x="55" y="0.0" width="297" height="76"/>
+                                                <rect key="frame" x="55" y="0.0" width="288" height="76"/>
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.5" maxValue="2" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDb-53-qoI">
-                                                        <rect key="frame" x="-2" y="0.0" width="301" height="31"/>
+                                                        <rect key="frame" x="-2" y="0.0" width="292" height="31"/>
                                                         <connections>
                                                             <action selector="updateVoicePitch:" destination="mbr-dt-Lqu" eventType="valueChanged" id="ceR-VG-6f6"/>
                                                         </connections>
                                                     </slider>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irk-DT-cqw">
-                                                        <rect key="frame" x="-2" y="46" width="301" height="31"/>
+                                                        <rect key="frame" x="-2" y="46" width="292" height="31"/>
                                                         <connections>
                                                             <action selector="updateSpeechRate:" destination="mbr-dt-Lqu" eventType="valueChanged" id="pM4-Sv-Ih0"/>
                                                         </connections>
@@ -306,22 +346,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-La-Fcz">
-                                        <rect key="frame" x="0.0" y="116" width="352" height="41"/>
+                                        <rect key="frame" x="0.0" y="116" width="343" height="41"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2hG-pS-WJr" userLabel="Voice Labels Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="166" height="41"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="41"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-eu-nwE" userLabel="Language Labels Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="20.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hly-Y9-jiH">
-                                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="78.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Langauge" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDb-tS-Gnv">
-                                                                <rect key="frame" x="85.5" y="0.0" width="80.5" height="20.5"/>
+                                                                <rect key="frame" x="83.5" y="0.0" width="78" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -329,7 +369,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kp-Fa-wi1">
-                                                        <rect key="frame" x="0.0" y="20.5" width="166" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="20.5" width="161.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -337,11 +377,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4VZ-oK-qXg">
-                                                <rect key="frame" x="186" y="0.0" width="166" height="41"/>
+                                                <rect key="frame" x="181.5" y="0.0" width="161.5" height="41"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" id="f9Y-Tp-Xzi" userLabel="Reset Voice Button" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="5" width="166" height="31"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="f9Y-Tp-Xzi" userLabel="Reset Voice Button" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="5" width="161.5" height="31"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Geneva" family="Geneva" pointSize="16"/>
                                                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -360,10 +399,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UNZ-vU-SM7">
-                                        <rect key="frame" x="0.0" y="197" width="352" height="34"/>
+                                        <rect key="frame" x="0.0" y="197" width="343" height="34"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRK-Dl-aFN" userLabel="Change Voice Button" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="161" height="34"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRK-Dl-aFN" userLabel="Change Voice Button" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="156.5" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Change Voice">
@@ -376,9 +415,8 @@
                                                     <segue destination="KFm-Ck-W1r" kind="presentation" id="QuF-Lx-rma"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" id="aZ3-bz-FdI" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="161" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aZ3-bz-FdI" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                <rect key="frame" x="186.5" y="0.0" width="156.5" height="34"/>
                                                 <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                 <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -395,16 +433,15 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ric-en-x4R" userLabel="Buttons Stack View">
-                                        <rect key="frame" x="0.0" y="271" width="352" height="234"/>
+                                        <rect key="frame" x="0.0" y="271" width="343" height="234"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="1ic-Ux-1SV" userLabel="Left Buttons Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="166" height="234"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="234"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zbh-Af-8p3" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbh-Af-8p3" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button1">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -415,9 +452,8 @@
                                                             <action selector="button1:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="ooO-2C-918"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Bv-Mg-ikm" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bv-Mg-ikm" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="50" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button3">
@@ -430,9 +466,8 @@
                                                             <action selector="button3:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="C5C-qc-FNy"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9Dg-XA-ZfW" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="100" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dg-XA-ZfW" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="100" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button5">
@@ -445,9 +480,8 @@
                                                             <action selector="button5:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="TcB-JL-Zgk"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hW7-Xa-zI6" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="150" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hW7-Xa-zI6" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="150" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button7">
@@ -460,9 +494,8 @@
                                                             <action selector="button7:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="pzI-ZL-Lbs"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hxx-V3-sI7" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="200" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxx-V3-sI7" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="200" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button9">
@@ -478,11 +511,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-Ia-h3L" userLabel="Right Buttons Stack View">
-                                                <rect key="frame" x="186" y="0.0" width="166" height="234"/>
+                                                <rect key="frame" x="181.5" y="0.0" width="161.5" height="234"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TTT-73-uoU" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTT-73-uoU" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button2">
@@ -495,9 +527,8 @@
                                                             <action selector="button2:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="GzF-YC-SMu"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lua-yC-gmW" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lua-yC-gmW" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="50" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button4">
@@ -510,9 +541,8 @@
                                                             <action selector="button4:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="gq4-ap-qrI"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yPb-bn-zlV" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="100" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPb-bn-zlV" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="100" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button6">
@@ -525,9 +555,8 @@
                                                             <action selector="button6:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="tlJ-9M-azN"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sXC-xO-0An" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="150" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXC-xO-0An" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="150" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button8">
@@ -540,9 +569,8 @@
                                                             <action selector="button8:" destination="mbr-dt-Lqu" eventType="touchUpInside" id="Ujm-XI-DE3"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Dk-sv-VvZ" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="200" width="166" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dk-sv-VvZ" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="200" width="161.5" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Button10">
@@ -559,9 +587,8 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4dR-va-YJO" userLabel="Default Settings Button" customClass="MyButton" customModule="TextToSpeech" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="545" width="352" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dR-va-YJO" userLabel="Default Settings Button" customClass="MyButton" customModule="Text_To_Speech" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="545" width="343" height="46"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <state key="normal" title="Defaults Settings">
@@ -633,13 +660,13 @@
         <!--Voices-->
         <scene sceneID="e8k-yO-CbH">
             <objects>
-                <tableViewController id="KFm-Ck-W1r" customClass="LanguageTableViewController" customModule="TextToSpeech" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KFm-Ck-W1r" customClass="LanguageTableViewController" customModule="Text_To_Speech" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fWf-NA-KIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="nng-CN-jk7">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="38" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Voices" id="07h-iQ-rdO" userLabel="Voices">

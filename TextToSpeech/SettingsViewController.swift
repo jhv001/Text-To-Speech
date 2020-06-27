@@ -133,6 +133,7 @@ class SettingsViewController: UIViewController {
             textField.placeholder = self.presetButtons[self.buttonIndex!].currentTitle
             //textField.text = self.presetButtons[self.buttonIndex!].currentTitle
             textField.clearButtonMode = .always
+            textField.autocorrectionType = .yes
             }
         
         alert.addAction(UIAlertAction(title: "Cancel" , style: .cancel))
